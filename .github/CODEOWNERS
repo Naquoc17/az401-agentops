@@ -1,6 +1,10 @@
 # Default owner for everything in the repository
 *  @Naquoc17
 
-# The last matching rule wins, so more specific rules go after general ones
-/docs/   @Naquoc17
-/.github/   @Naquoc17
+# Agent behaviour: these files change what Copilot does in this project
+/.github/agents/   @Naquoc17
+/.github/instructions/   @Naquoc17
+/.github/skills/   @Naquoc17
+
+# Ownership rules guard themselves
+/.github/CODEOWNERS     @Naquoc17
