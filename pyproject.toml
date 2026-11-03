@@ -1,0 +1,13 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "az401-agentops"
+version = "0.1.0"
+description = "AgentOps FastAPI service for the AZ-401 project"
+requires-python = ">=3.13"
+dependencies = ["fastapi", "uvicorn"]
+
+[tool.setuptools]
+packages = ["app"]
