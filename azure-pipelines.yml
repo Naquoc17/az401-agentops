@@ -4,19 +4,13 @@ trigger: none
 pr: none
 
 pool:
-  vmImage: "ubuntu-latest"
+   vmImage: "ubuntu-latest"
 
-jobs:
-  - job: first
-    steps:
-      - script: |
-          echo "written by first" > /tmp/marker.txt
-          hostname
-        displayName: "Write marker"
-  - job: second
-    dependsOn: first
-    steps:
-      - script: |
-          hostname
-          cat /tmp/marker.txt
-        displayName: "Read marker"
+steps:
+   - task: UsePythonVersion@0
+     inputs:
+        versionSpec: "3.13"
+   - script: python -m pip install -r requirements-dev.txt
+     displayName: "Install dependencies"
+   - script: python -m pytest
+     displayName: "Run tests"
