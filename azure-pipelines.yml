@@ -4,10 +4,18 @@ trigger:
   branches:
     include:
       - ci/triggers
+
 pr:
   branches:
     include:
       - main
+
+schedules:
+  - cron: "0 3 * * Mon-Fri"
+    displayName: Weekday 03:00 UTC build
+    branches:
+      include:
+        - ci/triggers
 
 pool:
   vmImage: "ubuntu-latest"
