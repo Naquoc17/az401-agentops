@@ -1,16 +1,19 @@
 name: ci-$(Date:yyyyMMdd).$(Rev:r)
 
-trigger: none
+trigger:
+  branches:
+    include:
+      - ci/triggers
 pr: none
 
 pool:
-   vmImage: "ubuntu-latest"
+  vmImage: "ubuntu-latest"
 
 steps:
-   - task: UsePythonVersion@0
-     inputs:
-        versionSpec: "3.13"
-   - script: python -m pip install -r requirements-dev.txt
-     displayName: "Install dependencies"
-   - script: python -m pytest
-     displayName: "Run tests"
+  - task: UsePythonVersion@0
+    inputs:
+      versionSpec: "3.13"
+  - script: python -m pip install -r requirements-dev.txt
+    displayName: "Install dependencies"
+  - script: python -m pytest
+    displayName: "Run tests"
