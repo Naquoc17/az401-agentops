@@ -4,10 +4,13 @@ trigger: none
 pr: none
 
 pool:
-  name: Default
+   vmImage: "ubuntu-latest"
 
 steps:
-  - script: python -m pip install -r requirements-dev.txt
-    displayName: "Install dependencies"
-  - script: python -m pytest
-    displayName: "Run tests"
+   - task: UsePythonVersion@0
+     inputs:
+        versionSpec: "3.13"
+   - script: python -m pip install -r requirements-dev.txt
+     displayName: "Install dependencies"
+   - script: python -m pytest
+     displayName: "Run tests"
