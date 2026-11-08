@@ -4,7 +4,10 @@ trigger:
   branches:
     include:
       - ci/triggers
-pr: none
+pr:
+  branches:
+    include:
+      - main
 
 pool:
   vmImage: "ubuntu-latest"
