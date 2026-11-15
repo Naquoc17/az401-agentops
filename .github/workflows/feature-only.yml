@@ -1,0 +1,11 @@
+name: Feature only comment
+
+on:
+  issue_comment:
+    types: [created]
+
+jobs:
+  show:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "feature-only workflow ran on ${{ github.ref }}"
